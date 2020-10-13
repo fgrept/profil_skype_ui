@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tous les profils</title>
+
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+
+<form th:action="@{/profiles/all/test}" th:object="${profil}" method="post">
+    <fieldset>
+        <legend>Your addresses</legend>
+        <ul>
+            <li th:each="skypeProfile : ${skypeProfiles}">
+            	 
+                <input type="radio" th:field="*{collaboraterId}" th:value="${skypeProfile}" />
+                <label th:for="${skypeProfile.collaboraterId}" th:text="${skypeProfile.collaboraterId}"></label>
+
+            </li>
+        </ul>
+    </fieldset>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

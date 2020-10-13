@@ -1,4 +1,4 @@
-package com.bnpparibas.projetfilrouge.profilskypeuserinterface.beans;
+package com.example.projetfilrouge.profilskypeuserinterface.beans;
 
 
 public class SkypeProfileBean {
@@ -19,6 +19,28 @@ public class SkypeProfileBean {
 
 
 	private String collaboraterId;
+
+	
+	public SkypeProfileBean() {
+		
+	}
+
+	
+	public SkypeProfileBean(String sIP, String enterpriseVoiceEnabled, String voicePolicy, String dialPlan,
+			String samAccountName, String exUmEnabled, String exchUser, String objectClass,
+			StatusSkypeProfileEnum statusProfile, String collaboraterId) {
+		super();
+		SIP = sIP;
+		this.enterpriseVoiceEnabled = enterpriseVoiceEnabled;
+		this.voicePolicy = voicePolicy;
+		this.dialPlan = dialPlan;
+		this.samAccountName = samAccountName;
+		this.exUmEnabled = exUmEnabled;
+		this.exchUser = exchUser;
+		this.objectClass = objectClass;
+		this.statusProfile = statusProfile;
+		this.collaboraterId = collaboraterId;
+	}
 
 
 	public String getSIP() {

@@ -1,11 +1,11 @@
-package com.bnpparibas.projetfilrouge.profilskypeuserinterface;
+package com.example.projetfilrouge.profilskypeuserinterface;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients("com.bnpparibas.projetfilrouge.profilskypeuserinterface")
+@EnableFeignClients("com.example.projetfilrouge.profilskypeuserinterface")
 public class ProfilSkypeUserInterfaceApplication {
 
 	public static void main(String[] args) {

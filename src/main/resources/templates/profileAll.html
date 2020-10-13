@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tous les profils</title>
+
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <h1>Liste des Profils skype  :</h1>
+          <a href="profilsAdd">Ajouter profil skype</a>
+      	<br/><br/>
+    <form th:action="@{/profile/update}"  th:object="${profil}" method="POST">
+		<table border="1">
+			<thead>
+				<tr> 
+					<th>Select</th>	
+					<th>UID</th>
+					<th>Name</th>
+					<th>UO Code</th>
+					<th>Site Code</th>
+					<th>Sam Account Name</th>
+					<th>Enterprise Voice Enabled</th>
+					<th>Voice Policy</th>
+					<th>statusProfile</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="skypeProfile:${skypeProfiles}">
+
+	 				<td>
+ 						<input type="radio" name="profil" th:field="*{collaboraterId}" th:value="${skypeProfile.collaboraterId}"/>			
+					</td>
+					<td>
+						<span th:text="${skypeProfile.collaboraterId}">UID</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.lastName}">lastName</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.orgaUnityCode}">UO Code</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.siteCode}">UO Site</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.samAccountName}">samAccountName</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.enterpriseVoiceEnabled}">Enterprise Voice Enabled</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.voicePolicy}">voicePolicy</span>
+					</td>
+					<td>
+						<span th:text="${skypeProfile.statusProfile}">statusProfile</span>
+
+					</td>
+				</tr>	
+			</tbody>
+		</table>
+		<p align="center">
+			<button type="submit" value ="Edit">Editer</button>
+			<button type="submit" value ="Delete">Supprimer</button>
+		</p>
+	</form>
+</div>
+    
+
+
+
+<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

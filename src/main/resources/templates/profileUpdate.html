@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editer profil skype</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h2>Editer Skype Profile : <span th:text="${skypeProfile.SIP}">SIP</span></h2>
+    <form th:action="@{/profile/update/valid}" th:object="${skypeProfile}" method="POST">
+	    <table>
+	    	<tr>
+	    		<td>UID : </td>
+	    		<td><span  th:text="${skypeProfile.collaboraterId}">UID</span></td>
+	    	</tr>
+	    	<tr>
+	    		<td>SIP : </td>
+	    		<td><input type="text" th:field="*{SIP}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Enterprise Voice Enabled :</td>
+	    		<td>
+	    			<input type="text" th:field="*{enterpriseVoiceEnabled}"/>
+	    			<input type="hidden" th:field="*{collaboraterId}"/>
+	    			<input type="hidden" th:field="*{statusProfile}"/>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>Voice Policy :</td>
+	    		<td><input type="text" th:field="*{voicePolicy}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Dial Plan :</td>
+	    		<td><input type="text" th:field="*{dialPlan}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Sam Account Name :</td>
+	    		<td><input type="text" th:field="*{samAccountName}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Ex Um Enabled :</td>
+	    		<td><input type="text" th:field="*{exUmEnabled}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Exch User :</td>
+	    		<td><input type="text" th:field="*{exchUser}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Object Class : </td>
+	    		<td><input type="text" th:field="*{objectClass}"/></td>
+	    	</tr>
+	    </table>
+	    <button type="submit" value ="Edit">Edit</button>
+    </form>
+</body>
+</html>

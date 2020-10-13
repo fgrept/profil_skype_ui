@@ -1,4 +1,4 @@
-package com.bnpparibas.projetfilrouge.profilskypeuserinterface.beans;
+package com.example.projetfilrouge.profilskypeuserinterface.beans;
 
 public class CollaboraterBean {
 	
@@ -16,6 +16,25 @@ public class CollaboraterBean {
 	private String siteAddress;
 	private String sitePostalCode;
 	private String siteCity;
+	
+	public CollaboraterBean() {
+		
+		this.collaboraterId="";
+		this.lastName="";
+		this.firstName="";
+		this.deskPhoneNumber="";
+		this.mobilePhoneNumber="";
+		this.mailAdress="";
+		this.orgaUnitCode="";
+		this.orgaUnityType="";
+		this.orgaShortLabel="";
+		this.siteCode="";
+		this.siteName="";
+		this.siteAddress="";
+		this.sitePostalCode="";
+		this.siteCity="";
+	}
+	
 	public String getCollaboraterId() {
 		return collaboraterId;
 	}

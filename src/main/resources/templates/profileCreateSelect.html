@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editer profil skype</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h2>Search collaborater : </h2>
+    <form th:action="@{/profile/create/select}" th:object="${collaborater}" method="POST">
+	    <table>
+	    	<tr>
+	    		<td>UID : </td>
+	    		<td><input type="text" th:field="*{collaboraterId}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Nom : </td>
+	    		<td><input type="text" th:field="*{lastName}"/></td>
+	    	</tr>
+	    		    	<tr>
+	    		<td>Prénom : </td>
+	    		<td><input type="text" th:field="*{firstName}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Adresse Mail : </td>
+	    		<td><input type="text" th:field="*{mailAdress}"/></td>
+	    	</tr>
+  	    	<tr>
+	    		<td>Téléphone bureau : </td>
+	    		<td><input type="text" th:field="*{deskPhoneNumber}"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td>Téléphone portable : </td>
+	    		<td><input type="text" th:field="*{mobilePhoneNumber}"/></td>
+	    	</tr>
+  	    	<tr>
+	    		<td>Code UO : </td>
+	    		<td>
+	    			<input type="text" th:field="*{orgaUnitCode}"/>
+	    			<input type="hidden" th:field="*{orgaUnityType}"/>
+	    			<input type="hidden" th:field="*{orgaShortLabel}"/>
+	    		</td>
+	    		
+	    	</tr>
+  	    	<tr>
+	    		<td>Code Site : </td>
+	    		<td>
+	    			<input type="text" th:field="*{siteCode}"/>
+	    			<input type="hidden" th:field="*{siteName}"/>
+	    			<input type="hidden" th:field="*{siteAddress}"/>
+	    			<input type="hidden" th:field="*{sitePostalCode}"/>
+	    			<input type="hidden" th:field="*{siteCity}"/>
+	    		</td>
+	    	</tr>
+	    </table>
+	    
+	    <p><button type="submit" value ="Search">Valider</button></p>
+    </form>
+    <br/>
+    <br/>
+	<h2>Liste des collaborateurs trouvés</h2>
+    <form th:action="@{/profile/create/form}" th:object="${collaboraterSelect}" method="POST">
+		<table border="1">
+			<thead>
+				<tr> 
+					<th>Select</th>	
+					<th>UID</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Adresse Mail</th>
+					<th>Tel Bureau</th>
+					<th>Tel Portable</th>
+					<th>Code UO</th>
+					<th>Libellé UO</th>
+					<th>Code Site</th>
+					<th>Libellé Site</th>
+				</tr>
+			</thead>
+			<tbody>
+	    		<tr th:if="${listCollaborater.empty}">
+					<td colspan="2">Pas de collaborateur trouvé </td>
+				</tr>
+				<tr th:each="collab:${listCollaborater}">
+					 <td>
+ 						<input type="radio" name="profil" th:field="*{collaboraterId}" th:value="${collab.collaboraterId}"/>			
+					</td>
+					<td>
+						<span th:text="${collab.collaboraterId}">UID</span>
+					</td>
+					<td>
+						<span th:text="${collab.lastName}">last Name</span>
+					</td>
+					<td>
+						<span th:text="${collab.firstName}">First Name</span>
+					</td>
+					<td>
+						<span th:text="${collab.mailAdress}">mail Adress</span>
+					</td>
+					<td>
+						<span th:text="${collab.deskPhoneNumber}">desk Phone Number</span>
+					</td>
+					<td>
+						<span th:text="${collab.mobilePhoneNumber}">desk Mpbile Number</span>
+					</td>
+					<td>
+						<span th:text="${collab.orgaUnitCode}">UO Code</span>
+					</td>
+					<td>
+						<span th:text="${collab.orgaShortLabel}">UO Short label</span>
+					</td>					
+					<td>
+						<span th:text="${collab.siteCode}">Site Code</span>
+					</td>
+					<td>
+						<span th:text="${collab.siteName}">Site Name</span>
+					</td>
+				</tr>					
+			</tbody>
+		</table>
+		<p><button type="submit" value ="Search">Valider</button></p>
+	</form>
+</body>
+</html>
+

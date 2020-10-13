@@ -1,4 +1,4 @@
-package com.bnpparibas.projetfilrouge.profilskypeuserinterface.beans;
+package com.example.projetfilrouge.profilskypeuserinterface.beans;
 
 import java.util.Set;
 

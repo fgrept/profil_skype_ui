@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer profil Skype</title>
+</head>
+<body>
+    <h2>Créer Skype Profile : </h2>
+    <form th:action="@{/profile/create/valid}" th:object="${skypeProfile}" method="POST">
+        <table>
+            <tr>
+                <td>UID : </td>
+                <td><span  th:text="${skypeProfile.collaboraterId}">UID</span></td>
+            </tr>
+            <tr>
+                <td>SIP : </td>
+                <td><input type="text" th:field="*{SIP}"/></td>
+            </tr>
+            <tr>
+                <td>Enterprise Voice Enabled :</td>
+                <td>
+                    <input type="text" th:field="*{enterpriseVoiceEnabled}"/>
+                    <input type="hidden" th:field="*{collaboraterId}"/>
+                    <input type="hidden" th:field="*{statusProfile}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Voice Policy :</td>
+                <td><input type="text" th:field="*{voicePolicy}"/></td>
+            </tr>
+            <tr>
+                <td>Dial Plan :</td>
+                <td><input type="text" th:field="*{dialPlan}"/></td>
+            </tr>
+            <tr>
+                <td>Sam Account Name :</td>
+                <td><input type="text" th:field="*{samAccountName}"/></td>
+            </tr>
+            <tr>
+                <td>Ex Um Enabled :</td>
+                <td><input type="text" th:field="*{exUmEnabled}"/></td>
+            </tr>
+            <tr>
+                <td>Exch User :</td>
+                <td><input type="text" th:field="*{exchUser}"/></td>
+            </tr>
+            <tr>
+                <td>Object Class : </td>
+                <td><input type="text" th:field="*{objectClass}"/></td>
+            </tr>
+            <tr>
+                <td>Commentaire : </td>
+                <td><input type="text" th:field="*{eventComment}"/></td>
+            </tr>
+        </table>
+        <button type="submit" value ="Create">Créer profil</button>
+    </form>
+</body>
+</html>
